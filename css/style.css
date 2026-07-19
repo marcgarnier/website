@@ -669,6 +669,73 @@ img.portrait {
 }
 
 /* --------------------------------------------------------------------------
+   Chart gallery (project pages)
+   -------------------------------------------------------------------------- */
+
+.chart-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) { .chart-gallery { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .chart-gallery { grid-template-columns: 1fr; } }
+
+.chart-fig { margin: 0; }
+
+.chart-fig a {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-raised);
+}
+
+.chart-fig a:hover { border-color: var(--accent-border); }
+
+.chart-fig img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chart-fig a:hover img { transform: scale(1.03); }
+
+.chart-fig figcaption { padding-top: 1rem; }
+
+.chart-fig .type {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.chart-fig h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.chart-fig p { color: var(--text-muted); font-size: 0.9rem; }
+
+.chart-note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  margin-top: 1.75rem;
+  max-width: 46rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
    Contact
    -------------------------------------------------------------------------- */
 
