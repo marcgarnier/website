@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctoral Thesis — Framing AI in Canadian Political Documents | Marc Garnier</title>
+  <meta name="description" content="Computational framing analysis of artificial intelligence in Canadian political documents, 2017–2026. Doctoral research by Marc Garnier, Université Laval.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        Marc Garnier
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="thesis.html" class="active">Doctoral thesis</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= Hero ================= -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="kicker">Doctoral Thesis · 2026 → · Supervised by Thierry Giasson</span>
+        <h1>Framing AI in Canadian political documents, <em>2017–2026</em>.</h1>
+        <p class="lede" style="margin-top: 1.2rem;">
+          “How is AI <strong>framed</strong> in Canadian political discourse, <strong>by which
+          actors</strong>, and how do these framings <strong>transform</strong> between 2017 and
+          2026?” — a supervised machine-learning approach, transposing the CCF methodology to the
+          federal parliamentary and strategic corpus.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Stats ================= -->
+    <section class="stats">
+      <div class="wrap stats-grid">
+        <div class="stat">
+          <div class="value">8 frames</div>
+          <div class="label">Thematic categories</div>
+        </div>
+        <div class="stat">
+          <div class="value">6 actors</div>
+          <div class="label">Messenger types</div>
+        </div>
+        <div class="stat">
+          <div class="value">4 stances</div>
+          <div class="label">Evaluative framings</div>
+        </div>
+        <div class="stat">
+          <div class="value">κ · AC1</div>
+          <div class="label">Intercoder validation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Turning point / timeline ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Point of departure</span>
+          <h2 class="section-title">2017: a turning point.</h2>
+          <p class="lede">
+            The Pan-Canadian AI Strategy marks the first time the federal government treats AI as
+            an object of public policy. It is the anchor from which the corpus is built — the
+            equivalent of the CCF project’s “1978” — and the reference point against which the
+            evolution of framings is measured.
+          </p>
+        </div>
+        <ul class="timeline">
+          <li class="reveal">
+            <span class="year">2017</span>
+            <h3>Pan-Canadian Artificial Intelligence Strategy</h3>
+            <p>CIFAR / ISED. The founding document: AI becomes a federal policy object.</p>
+          </li>
+          <li class="reveal">
+            <span class="year">2019</span>
+            <h3>Directive on Automated Decision-Making</h3>
+            <p>Treasury Board rules for algorithmic decisions within the federal administration.</p>
+          </li>
+          <li class="reveal">
+            <span class="year">2022</span>
+            <h3>AI Strategic Plan · AIDA (Bill C-27)</h3>
+            <p>First attempt at a Canadian legislative framework for artificial intelligence.</p>
+          </li>
+          <li class="reveal">
+            <span class="year">2024</span>
+            <h3>National AI Strategy consultation</h3>
+            <p>Public consultation and briefs feeding into the future national strategy.</p>
+          </li>
+          <li class="reveal">
+            <span class="year">2026</span>
+            <h3>National strategy “AI for All”</h3>
+            <p>The closing milestone of the period under study.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Methodology ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Methodological framework</span>
+          <h2 class="section-title">A four-phase computational pipeline.</h2>
+          <p class="lede">
+            The pipeline is taken directly from the CCF methodology and transposed to the scale of
+            the Canadian corpus. Validation relies on intercoder agreement — Cohen’s κ and
+            Gwet’s AC1.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="num">Phase · 01</span>
+            <h3>Corpus construction</h3>
+            <p>Collection of the sources and sentence-level segmentation with <span class="mono-num">spaCy</span>; structured storage in <span class="mono-num">PostgreSQL</span>.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Phase · 02</span>
+            <h3>Semi-manual annotation</h3>
+            <p>A gold standard of 500–1,000 passages, annotated with LLM-assisted tooling and Doccano.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Phase · 03</span>
+            <h3>Supervised classification</h3>
+            <p><span class="mono-num">BERT</span> (EN) and <span class="mono-num">CamemBERT</span> (FR) trained on the gold-standard sample.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Phase · 04</span>
+            <h3>Diachronic analysis</h3>
+            <p>Quantified measurement of the shift in dominant framings across 2017–2026.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Corpus ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Data sources</span>
+          <h2 class="section-title">A corpus in five strata.</h2>
+          <p class="lede">
+            The corpus is hypothetical at this stage — volumes remain to be confirmed, and passages
+            genuinely related to AI will be filtered beforehand.
+          </p>
+        </div>
+        <div class="strata reveal">
+          <div class="stratum">
+            <span class="idx">01</span>
+            <h3>Parliamentary debates</h3>
+            <p class="detail">Main corpus. Hansard — House, committees (INDU, ETHI, SECU, RNNR), Senate · 50,000–200,000 passages.</p>
+            <span class="src">ourcommons.ca · parl.ca · XML</span>
+          </div>
+          <div class="stratum">
+            <span class="idx">02</span>
+            <h3>Strategic documents</h3>
+            <p class="detail">2017 Strategy, 2022 Plan, Directive on Automated Decision-Making, AIDA (Bill C-27), “AI for All” 2026.</p>
+            <span class="src">canada.ca · ised-isde.canada.ca</span>
+          </div>
+          <div class="stratum">
+            <span class="idx">03</span>
+            <h3>Consultations &amp; briefs</h3>
+            <p class="detail">AIDA, 2024 National Strategy consultation, briefs submitted to committees.</p>
+            <span class="src">consultations · canada.ca</span>
+          </div>
+          <div class="stratum">
+            <span class="idx">04</span>
+            <h3>Speeches &amp; addresses</h3>
+            <p class="detail">Speeches from the Throne, federal budgets, ministerial addresses (ISED, TBS, PS).</p>
+            <span class="src">canada.ca · House archives</span>
+          </div>
+          <div class="stratum">
+            <span class="idx">05</span>
+            <h3>Advisory reports</h3>
+            <p class="detail">AI Advisory Council, Office of the Privacy Commissioner, Senate committee reports.</p>
+            <span class="src">lop.parl.ca</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Annotation scheme ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Intellectual contribution</span>
+          <h2 class="section-title">The annotation scheme.</h2>
+          <p class="lede">
+            The first AI × politics annotation scheme adapted to the bilingual Canadian context.
+            Each sentence can carry multiple labels: thematic frames, messengers and evaluative
+            stances.
+          </p>
+        </div>
+
+        <div class="annotation-demo reveal">
+          <span class="source">Hansard · Minister (Government) — annotated example</span>
+          <p class="sentence">
+            Artificial intelligence represents
+            <span class="ann ann-econ">a major economic opportunity<span class="ann-tag">Economic · Opportunity</span></span>
+            for Canada, but we must
+            <span class="ann ann-ethics">protect privacy<span class="ann-tag">Ethics</span></span>
+            and prevent
+            <span class="ann ann-risk">algorithmic discrimination<span class="ann-tag">Risk</span></span>
+            as well as
+            <span class="ann ann-security">disinformation<span class="ann-tag">Security</span></span>.
+          </p>
+
+          <div class="taxonomy">
+            <div>
+              <div class="group-label">Thematic frames · 8</div>
+              <div class="chips">
+                <span class="chip">Economic</span>
+                <span class="chip">Security</span>
+                <span class="chip">Ethics &amp; rights</span>
+                <span class="chip">Scientific-technical</span>
+                <span class="chip">Regulation</span>
+                <span class="chip">Sovereignty</span>
+                <span class="chip">Labour</span>
+                <span class="chip">Health</span>
+              </div>
+            </div>
+            <div>
+              <div class="group-label">Actors / messengers · 6</div>
+              <div class="chips">
+                <span class="chip">Researchers</span>
+                <span class="chip">Civil servants</span>
+                <span class="chip">Companies</span>
+                <span class="chip">Civil society</span>
+                <span class="chip">International organisations</span>
+                <span class="chip">Political parties</span>
+              </div>
+            </div>
+            <div>
+              <div class="group-label">Evaluative framings · 4</div>
+              <div class="chips">
+                <span class="chip">Opportunity</span>
+                <span class="chip">Risk</span>
+                <span class="chip">Urgency</span>
+                <span class="chip">Neutrality</span>
+              </div>
+            </div>
+            <div>
+              <div class="group-label">Trigger events</div>
+              <div class="chips">
+                <span class="chip">National strategies</span>
+                <span class="chip">Bills</span>
+                <span class="chip">Incidents (ChatGPT)</span>
+                <span class="chip">Summits (G7, Bletchley)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Analytical scope ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Analytical scope</span>
+          <h2 class="section-title">The analyses this corpus makes possible.</h2>
+          <p class="lede">
+            Beyond the <em>when</em>: the corpus captures <em>who</em> frames AI, <em>how</em>,
+            <em>why</em> and with what effects.
+          </p>
+        </div>
+        <div class="card-grid">
+          <div class="card reveal">
+            <span class="card-label">01</span>
+            <h3>Actors &amp; framings</h3>
+            <p>Who speaks and how: Liberals vs Conservatives, ISED vs Treasury Board, Mila vs Microsoft.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">02</span>
+            <h3>Authority networks</h3>
+            <p>NER and co-citations: Bengio framed as “ethics”, OpenAI as “threat” or “opportunity”.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">03</span>
+            <h3>Federal geography</h3>
+            <p>Framings by province and institution; jurisdictional tensions over AI.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">04</span>
+            <h3>Agenda-setting</h3>
+            <p>Trigger events and attention peaks: the ChatGPT effect in the House.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">05</span>
+            <h3>Priority at the top</h3>
+            <p>Which frames reach the Speech from the Throne and the federal budget.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">06</span>
+            <h3>Inter-party comparison</h3>
+            <p>NDP / labour, Bloc / sovereignty, Conservatives / competitiveness.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">07</span>
+            <h3>Discursive polarisation</h3>
+            <p>Is AI becoming divisive like climate, or does it remain consensual?</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">08 · Novel avenue</span>
+            <h3>Discursive cascades</h3>
+            <p>Tracing a framing from brief to committee, to minister, then to bill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Contributions ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Conclusion</span>
+          <h2 class="section-title">Contributions and next steps.</h2>
+        </div>
+        <div class="card-grid two">
+          <div class="card reveal">
+            <span class="card-label">Contributions</span>
+            <h3>What the thesis brings</h3>
+            <p>
+              The first AI × politics annotation scheme adapted to the bilingual Canadian context ·
+              a quantified measurement of the shift in framings, 2017 → 2026 · an open, reusable
+              computational corpus.
+            </p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">Next steps</span>
+            <h3>Roadmap</h3>
+            <p>
+              <span class="mono-num">01</span> Build the Hansard corpus (XML) ·
+              <span class="mono-num">02</span> Annotate the gold standard (Doccano) ·
+              <span class="mono-num">03</span> Train and validate the classifiers ·
+              <span class="mono-num">04</span> Analyse the diachronic trajectory.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p>© <span data-year>2026</span> Marc Garnier · Université Laval</p>
+      <ul class="footer-links">
+        <li><a href="thesis.html">Doctoral thesis</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="mailto:garniermarc.pro@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
