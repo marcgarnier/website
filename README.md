@@ -1,6 +1,6 @@
 # Site personnel — Marc Garnier
 
-Site vitrine statique (HTML / CSS / JS, aucune dépendance à installer).
+Site statique (HTML / CSS / JS, aucune dépendance à installer).
 
 ## Structure
 
