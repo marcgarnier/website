@@ -48,7 +48,7 @@
       <div class="wrap stats-grid">
         <div class="stat">
           <div class="value">262 charts</div>
-          <div class="label">Collected corpus</div>
+          <div class="label">Initial corpus, extended</div>
         </div>
         <div class="stat">
           <div class="value">4 mechanics</div>
@@ -147,8 +147,9 @@
           <span class="kicker">Analysis · gamification</span>
           <h2 class="section-title">Four recurring gamified mechanics.</h2>
           <p class="lede">
-            Charts were coded systematically against the game-design elements described by
-            Deterding, Dixon, Khaled &amp; Nacke (2011). Four mechanics recur across the sample.
+            Charts are coded against the game-design elements described by Deterding, Dixon, Khaled
+            &amp; Nacke (2011) — now through the computational pipeline described below. Four
+            mechanics recur across the corpus.
           </p>
         </div>
         <div class="steps">
@@ -268,64 +269,205 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="kicker">Corpus &amp; method</span>
-          <h2 class="section-title">From 262 charts to a systematic reading.</h2>
+          <span class="kicker">Corpus &amp; method · revised</span>
+          <h2 class="section-title">A computational pipeline for the charts of /lit/.</h2>
+          <p class="lede">
+            This revised method keeps the theoretical objects of the original project — Deterding et
+            al.’s (2011) gamified mechanics, Entman’s (2004) framing structures and the counter-public
+            reading (Fraser, 2001; Bennett &amp; Pfetsch, 2018) — but replaces manual coding with a
+            <strong>reproducible, zero-budget computational chain</strong>, built exclusively on open-source
+            tools and open-weight models from GitHub and Hugging Face. Everything runs in Python on a
+            personal machine; a consumer GPU suffices, and Colab or Kaggle provide free ones.
+          </p>
         </div>
+
         <div class="strata reveal">
           <div class="stratum">
             <span class="idx">01</span>
-            <h3>Collection</h3>
-            <p class="detail">A base of 262 charts gathered from /lit/ and third-party mirrors, then sorted into a representative sample.</p>
-            <span class="src">4chan · /lit/</span>
+            <h3>Automated corpus construction</h3>
+            <p class="detail">
+              The 262-chart base is kept but rebuilt and extended systematically, via 4chan’s public JSON
+              API and the third-party archives indexing /lit/ over the long run (Warosu, Desuarchive,
+              queried through FoolFuuka). Keyword search retrieves not only images but their
+              <strong>circulation metadata</strong>: source thread, date, replies, reception vocabulary
+              (“that’s kino anon”). Perceptual hashing then turns deduplication into a measure of
+              diffusion — repost frequency of a hash becomes a quantitative indicator of a chart’s
+              circulation, and Hamming distance between hashes reconstructs chart genealogies.
+            </p>
+            <span class="src">4chan API · BASC-py4chan · FoolFuuka · imagehash</span>
           </div>
+
           <div class="stratum">
             <span class="idx">02</span>
-            <h3>Systematic coding</h3>
-            <p class="detail">Each chart coded against Deterding et al.’s (2011) concrete game-design elements to surface recurring gamified mechanics.</p>
-            <span class="src">Deterding et al., 2011</span>
+            <h3>Structured extraction — OCR + vision-language models</h3>
+            <p class="detail">
+              Human reading of each image is replaced by two automated layers. First OCR (PaddleOCR,
+              Surya) — more robust than Tesseract on stylised fonts — extracts all text with per-block
+              coordinates. Then a locally run open-weight VLM (Qwen2.5-VL, InternVL2, LLaVA-NeXT) emits
+              structured JSON per chart: layout type, nodes with positions, relations between nodes
+              (arrows, reading order, branches), ordinal labels and colour codes. The result is a
+              <strong>formal representation</strong> of each chart — a directed graph whose nodes are
+              works and whose edges are prescribed reading paths. Entities are normalised by fuzzy
+              matching against Open Library / Wikidata dumps.
+            </p>
+            <span class="src">PaddleOCR · Surya · Qwen2.5-VL · rapidfuzz</span>
           </div>
+
           <div class="stratum">
             <span class="idx">03</span>
-            <h3>Framing typology</h3>
-            <p class="detail">Qualitative grouping into three framing structures — initiatory guides, cultural canons, playful cartographies.</p>
-            <span class="src">Entman, 2004</span>
+            <h3>Automated coding of mechanics, human-validated</h3>
+            <p class="detail">
+              The Deterding codebook becomes an operationalisable annotation scheme, each mechanic
+              receiving computable indicators (detailed below). LLM coding is not taken at face value:
+              following Ziems et al. (2024), a subsample of ~50 charts is double-coded by hand and
+              human–machine agreement is measured with Cohen’s κ or Krippendorff’s α. The prompt is
+              iterated until <strong>α ≥ 0.70</strong>, then applied to the whole corpus — the original
+              manual method thus becomes the validation procedure for the computational one.
+            </p>
+            <span class="src">Ziems et al., 2024 · κ / α ≥ 0.70</span>
           </div>
+
           <div class="stratum">
             <span class="idx">04</span>
-            <h3>Interpretation</h3>
-            <p class="detail">Reading the results through counter-public and fragmented-sphere theory to explain how radicalism circulates.</p>
-            <span class="src">Fraser, 2001 · Bennett &amp; Pfetsch, 2018</span>
+            <h3>Inductive typology, tested against theory</h3>
+            <p class="detail">
+              Rather than imposing the three framing types, the pipeline puts them to the test. Each
+              chart is a vector combining structural features from its graph (depth, width, tree vs
+              grid, cycles), a visual embedding (CLIP, SigLIP, DINOv2) and a textual embedding of the
+              OCR output. Unsupervised clustering (HDBSCAN) and BERTopic surface inductive groupings.
+              The question becomes empirical: do the emergent clusters match the three postulated
+              structures? Correspondence is measured by <strong>Adjusted Rand Index</strong>, turning the
+              typology into a testable hypothesis rather than an a priori grid.
+            </p>
+            <span class="src">HDBSCAN · BERTopic · CLIP / DINOv2 · ARI</span>
+          </div>
+
+          <div class="stratum">
+            <span class="idx">05</span>
+            <h3>Network analysis — mapping ideological libraries</h3>
+            <p class="detail">
+              Structured extraction enables what manual coding could not: an author co-occurrence
+              network across the entire corpus, two authors linked when they share a chart. Community
+              detection (Louvain, Leiden) makes the “closed ideological libraries” appear empirically as
+              <strong>dense modules</strong> — traditionalist, libertarian, communist. Betweenness
+              centrality identifies the <strong>bridge authors</strong> connecting “neutral” literature to
+              radical corpora: precisely where the circulation of radicalism plays out, now visible and
+              quantifiable. Combined with the temporal data of step 01, it tracks how canons evolve.
+            </p>
+            <span class="src">networkx · Gephi · Louvain / Leiden</span>
+          </div>
+
+          <div class="stratum">
+            <span class="idx">06</span>
+            <h3>Interpretation &amp; reproducibility</h3>
+            <p class="detail">
+              The counter-public interpretation is unchanged, but now rests on quantified results:
+              prevalence of each mechanic, cluster structure, network topology, repost dynamics. The
+              central argument — the message lies as much in the <em>form</em> as in the content — gains
+              empirical grounding, since form is formally encoded and its association with ideological
+              content becomes statistically testable. The whole pipeline is published on GitHub:
+              collection scripts, prompts, operationalised codebook, notebooks, data versioned with DVC.
+              No commercial API is required, which guarantees reproducibility, result stability, and
+              ethical compliance — <strong>the data never leaves the researcher’s machine</strong>, no
+              small matter for a 4chan corpus.
+            </p>
+            <span class="src">GitHub · Jupyter · DVC</span>
           </div>
         </div>
 
-        <div class="taxonomy" style="margin-top: 2.4rem;">
+        <!-- Operationalised mechanics -->
+        <h3 class="section-title reveal" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">
+          Operationalising the four mechanics.
+        </h3>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="num">Indicator · 01</span>
+            <h3>Progression</h3>
+            <p>Ordinal labels detected by OCR (tier, level, novice/proficient, start/end) and the existence of a directed path in the extracted graph — is it a DAG with a source and sinks?</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Indicator · 02</span>
+            <h3>Symbolic reward</h3>
+            <p>Lexical detection of achievement vocabulary (proficient, mastery, patrician) by a zero- or few-shot classifier built on an open text LLM, applied to the OCR output.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Indicator · 03</span>
+            <h3>Cognitive simplification</h3>
+            <p>Visual indicators computed with OpenCV: dominant colour count, density of arrows and separators, image-to-text ratio. Simplification becomes a measurable variable, not an impression.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Indicator · 04</span>
+            <h3>Community identification</h3>
+            <p>Detection of in-group lexicon and /lit/ subcultural markers, both inside the chart <em>and</em> in the threads that receive it — using the circulation metadata from step 01.</p>
+          </div>
+        </div>
+
+        <!-- Limits -->
+        <h3 class="section-title reveal" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">
+          Limits and safeguards.
+        </h3>
+        <div class="card-grid">
+          <div class="card reveal">
+            <span class="card-label">Limit 01</span>
+            <h3>OCR on ornamented fonts</h3>
+            <p>Charts favour stylised typography — the Nietzsche guide is a case in point. Hence the dual OCR + VLM layer and sample-based human validation.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">Limit 02</span>
+            <h3>VLM hallucination</h3>
+            <p>Models can invent plausible but absent titles. Normalisation against Open Library acts as a filter, and every unmatched title is checked by hand.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">Limit 03</span>
+            <h3>Inherited model bias</h3>
+            <p>LLM coding inherits the biases of its models. Human–machine agreement scores and full publication of the prompts are the minimum defensible safeguards.</p>
+          </div>
+        </div>
+
+        <!-- Toolbox -->
+        <div class="taxonomy" style="margin-top: 3rem;">
           <div>
-            <div class="group-label">Gamified mechanics · 4</div>
+            <div class="group-label">Collection &amp; deduplication</div>
             <div class="chips">
-              <span class="chip">Progression</span>
-              <span class="chip">Symbolic reward</span>
-              <span class="chip">Cognitive simplification</span>
-              <span class="chip">Community identification</span>
+              <span class="chip">4chan JSON API</span>
+              <span class="chip">BASC-py4chan</span>
+              <span class="chip">FoolFuuka</span>
+              <span class="chip">Desuarchive · Warosu</span>
+              <span class="chip">imagehash</span>
             </div>
           </div>
           <div>
-            <div class="group-label">Chart types · 3</div>
+            <div class="group-label">OCR &amp; vision-language</div>
             <div class="chips">
-              <span class="chip">Initiatory guides</span>
-              <span class="chip">Cultural canons</span>
-              <span class="chip">Playful cartographies</span>
+              <span class="chip">PaddleOCR</span>
+              <span class="chip">Surya</span>
+              <span class="chip">Qwen2.5-VL</span>
+              <span class="chip">InternVL2</span>
+              <span class="chip">LLaVA-NeXT</span>
+              <span class="chip">Ollama · vLLM</span>
+              <span class="chip">OpenCV</span>
             </div>
           </div>
           <div>
-            <div class="group-label">Key concepts</div>
+            <div class="group-label">Embeddings, clustering &amp; topics</div>
             <div class="chips">
-              <span class="chip">Public sphere</span>
-              <span class="chip">Counter-public</span>
-              <span class="chip">Pseudo-public sphere</span>
-              <span class="chip">Fragmented publics</span>
-              <span class="chip">Gamification</span>
-              <span class="chip">Framing</span>
-              <span class="chip">Subcultural trolling</span>
+              <span class="chip">Llama 3.1 · Mistral · Qwen2.5</span>
+              <span class="chip">CLIP · SigLIP · DINOv2</span>
+              <span class="chip">sentence-transformers</span>
+              <span class="chip">HDBSCAN</span>
+              <span class="chip">BERTopic</span>
+              <span class="chip">rapidfuzz</span>
+            </div>
+          </div>
+          <div>
+            <div class="group-label">Networks, validation &amp; reproducibility</div>
+            <div class="chips">
+              <span class="chip">networkx</span>
+              <span class="chip">Gephi</span>
+              <span class="chip">Cohen’s κ</span>
+              <span class="chip">Krippendorff’s α</span>
+              <span class="chip">GitHub · Jupyter</span>
+              <span class="chip">DVC</span>
             </div>
           </div>
         </div>
