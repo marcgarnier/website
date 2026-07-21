@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>“That’s kino anon” — Gamified reading charts on 4chan’s /lit/ | Marc Garnier</title>
-  <meta name="description" content="A communication-research study of 4chan’s /lit/ reading charts as gamified devices for the diffusion of literary radicalism. By Marc Garnier (COM 885, Université de Sherbrooke).">
+  <meta name="description" content="A communication-research study of 4chan’s /lit/ reading charts as gamified devices for the diffusion of literary radicalism — now with results from a reproducible, fully local computational pipeline over 264 charts. By Marc Garnier.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -34,12 +34,15 @@
     <!-- ================= Hero ================= -->
     <section class="hero">
       <div class="wrap">
-        <span class="kicker">Research paper · COM 885 · Université de Sherbrooke</span>
+        <span class="kicker">Research paper · COM 885 · extended with a computational pipeline</span>
         <h1>“That’s kino anon” — reading charts as <em>gamified</em> devices on 4chan’s /lit/.</h1>
         <p class="lede" style="margin-top: 1.2rem;">
           A communication-research study of the <strong>“charts”</strong> circulating on 4chan’s
           Literature board. How do these playful visual reading lists <strong>frame</strong> and
           <strong>diffuse literary radicalism</strong> inside an anonymous online counter-public?
+          The original qualitative analysis has since been extended into a
+          <strong>reproducible pipeline</strong> that measures the whole corpus — and the numbers
+          complicate the story.
         </p>
       </div>
     </section>
@@ -48,20 +51,20 @@
     <section class="stats">
       <div class="wrap stats-grid">
         <div class="stat">
-          <div class="value">262 charts</div>
-          <div class="label">Initial corpus, extended</div>
+          <div class="value">264 charts</div>
+          <div class="label">Corpus, fully processed</div>
         </div>
         <div class="stat">
-          <div class="value">4 mechanics</div>
-          <div class="label">Gamified patterns</div>
+          <div class="value">34 581</div>
+          <div class="label">Works extracted by OCR</div>
         </div>
         <div class="stat">
-          <div class="value">3 types</div>
-          <div class="label">Framing structures</div>
+          <div class="value">75 %</div>
+          <div class="label">Are catalogues, not paths</div>
         </div>
         <div class="stat">
-          <div class="value">4chan · /lit/</div>
-          <div class="label">Field site</div>
+          <div class="value">56 %</div>
+          <div class="label">Density of the canon network</div>
         </div>
       </div>
     </section>
@@ -130,13 +133,153 @@
           <div class="card reveal">
             <span class="card-label">05</span>
             <h3>Framing</h3>
-            <p>Entman (2004); Gestlé &amp; Piar (2020): the chart as a framing device — visual hierarchy replacing rational deliberation, an “illusion of choice”.</p>
+            <p>Entman (2004): to frame is to select and make salient. The chart delimits what should be read, thought and believed before any argument is made.</p>
           </div>
           <div class="card reveal">
             <span class="card-label">06</span>
             <h3>Trolling &amp; transgression</h3>
-            <p>Phillips (2015) and Nagle (2017): 4chan’s subcultural trolling and “culture of transgression” as the backdrop against which irony masks radical discourse.</p>
+            <p>Nagle (2017): a “culture of transgression” that normalised reactionary discourse behind cynicism and memetic play.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Results ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Results · the whole corpus, measured</span>
+          <h2 class="section-title">What 264 charts actually do.</h2>
+          <p class="lede">
+            The original study read a sample closely. The pipeline now reads all of it: every chart
+            was OCR’d locally, its blocks and sections rebuilt geometrically, its text screened for
+            a lexicon of gamification, and its form coded on the image. The findings below
+            <strong>refine the paper’s argument rather than confirm it</strong> — which is what
+            measurement is for.
+          </p>
+        </div>
+
+        <div class="result-figs">
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 1 · form</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-forms.png"
+                   alt="Bar chart of chart forms: plain grid 110, sectioned grid 76, flowchart 29, tier list 24, text list 11, collage 11, map 3.">
+            </div>
+            <figcaption>
+              Three quarters of the corpus are <strong>catalogues</strong> — grids, with or without
+              named sections — that juxtapose works without prescribing any route. Structurally
+              prescriptive forms, flowcharts and tier lists, account for only 20 %, and just 13 % of
+              charts draw arrows at all.
+              <span class="keynum">
+                <span class="n">75 % / 20 %</span>
+                <span class="g">Against the imaginary of “start with the Greeks”, the dominant form
+                on /lit/ is not the guided path but the ranked list.</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 2 · gamified markers</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-mechanics.png"
+                   alt="Share of charts carrying each marker: prescribed order 26%, imperative 24%, entry point 17%, prerequisites 14%, graded difficulty 12%, optional 6%, reward 6%, named tiers 4%, value hierarchy 2%.">
+            </div>
+            <figcaption>
+              Nine registers were searched by regular expression across every chart’s full text — a
+              deterministic, checkable method, with the matching lines kept as evidence. No mechanic
+              is in the majority. The most widespread are <em>discursive</em>: a quarter of charts
+              prescribe an order or address the reader in the imperative. The most explicitly
+              video-game-like — <em>named tiers</em> (4 %) and the <em>God-Tier / pleb</em> value
+              hierarchy (2 %) — turn out to be rare.
+              <span class="keynum">
+                <span class="n">26 % vs 4 %</span>
+                <span class="g">Gamification on /lit/ is first a matter of prescriptive language,
+                not of video-game decorum.</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 3 · the central result</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-form-x-mechanic.png"
+                   alt="Heatmap of form against marker. Flowcharts: 66% entry point, 62% imperative. Tier lists: 25% named tiers, 29% graded difficulty. Text lists: 73% imperative. Grids: near zero across the board.">
+            </div>
+            <figcaption>
+              Crossing form with language reveals a <strong>division of prescriptive labour</strong>.
+              Flowcharts prescribe twice over: two thirds name an entry point and two thirds command
+              the reader. Tier lists barely command but they <em>grade</em> — they hold almost all
+              the named tiers and value hierarchies. Most telling, <strong>text lists</strong>, the
+              visually poorest form, compensate entirely through language: 73 % use imperatives,
+              the highest lexical score in the corpus. Grids do neither, with a median score of zero.
+              <span class="keynum">
+                <span class="n">A distributed function</span>
+                <span class="g">Gamification is not a property of the chart. It is shared between
+                layout and utterance, and each form picks its channel.</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 4 · typology, put to the test</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-typology.png"
+                   alt="Stacked bars comparing two emergent clusters against the paper's three theoretical types, adjusted Rand index 0.12.">
+            </div>
+            <figcaption>
+              Unsupervised clustering on the 19 measured variables — never on the coded labels —
+              returns <strong>two</strong> groups, not three: 222 mute catalogues and 42 talkative,
+              prescriptive guides. Confronted with the paper’s three types, the adjusted Rand index
+              is <strong>0.12</strong>; against the wiki’s thematic categories it falls to 0.02.
+              The partition therefore recovers <em>neither</em> visual appearance <em>nor</em>
+              subject matter. The theoretical distinction that survives measurement is the one
+              between guiding and cataloguing; “playful cartographies” do not separate out as a
+              third empirical family.
+              <span class="keynum">
+                <span class="n">ARI 0.12</span>
+                <span class="g">The data isolate a dimension of their own — the regime of
+                utterance — irreducible to both style and topic.</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 5 · the canon as a network</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-network.png"
+                   alt="Co-occurrence network of the 124 core authors, forming a single dense central mass.">
+            </div>
+            <figcaption>
+              Two authors are linked when they appear on the same chart. Of the 3 006 authors
+              recovered after cleaning, 88 % appear on a single chart — but the 124 who reach five
+              or more form a block whose density is <strong>56 %</strong>: more than half of all
+              possible pairs actually co-occur. There is one central mass, not a federation of
+              specialised canons.
+              <span class="keynum">
+                <span class="n">One block, not many</span>
+                <span class="g">The chart does not recommend books. It reproduces a solidary list —
+                which is precisely how a device of conformity works.</span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure class="result-fig reveal">
+            <span class="fig-label">Figure 6 · bridges</span>
+            <div class="fig-plate">
+              <img src="assets/figures/fig-bridges.png"
+                   alt="Bar chart of bridge authors ranked by betweenness centrality.">
+            </div>
+            <figcaption>
+              Betweenness centrality does not reward popularity: an author can be widely cited yet
+              confined to one region of the network. Those who top this ranking are the
+              <strong>bridges</strong> — authors who belong at once to the general literary canon
+              and to a specialised ideological corpus. They are the hinges through which a reader
+              recruited by literature arrives at something else.
+            </figcaption>
+          </figure>
+
         </div>
       </div>
     </section>
@@ -148,9 +291,9 @@
           <span class="kicker">Analysis · gamification</span>
           <h2 class="section-title">Four recurring gamified mechanics.</h2>
           <p class="lede">
-            Charts are coded against the game-design elements described by Deterding, Dixon, Khaled
-            &amp; Nacke (2011) — now through the computational pipeline described below. Four
-            mechanics recur across the corpus.
+            Charts were first coded against the game-design elements described by Deterding, Dixon,
+            Khaled &amp; Nacke (2011). Each mechanic is given below with what the corpus-wide
+            measurement now says about it.
           </p>
         </div>
         <div class="steps">
@@ -158,21 +301,33 @@
             <span class="num">Mechanic · 01</span>
             <h3>Progression</h3>
             <p>From novice to expert: the reader advances level by level along a literary path, choosing to stop, continue or branch off.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Measured · 26 % prescribe an order, 17 % name an entry point
+            </p>
           </div>
           <div class="step reveal">
             <span class="num">Mechanic · 02</span>
             <h3>Symbolic reward</h3>
             <p>Mastery of a corpus is staged as an achievement — becoming “proficient”, earned through the “grind” of reading.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Measured · rarer than expected — 6 % promise a status, 4 % name tiers
+            </p>
           </div>
           <div class="step reveal">
             <span class="num">Mechanic · 03</span>
             <h3>Cognitive simplification</h3>
             <p>Ideological complexity is turned into clear visual schemas: arrows, tiers, categories and colour codes.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Measured · only 13 % actually draw arrows; simplification is mostly typographic
+            </p>
           </div>
           <div class="step reveal">
             <span class="num">Mechanic · 04</span>
             <h3>Community identification</h3>
             <p>A ready-made “panoply” of authors that rewards the status of the initiate — the “real reader” inside a closed circle.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Measured indirectly · a 56 %-dense canon block is what “the panoply” looks like
+            </p>
           </div>
         </div>
       </div>
@@ -183,10 +338,10 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="kicker">Analysis · framing structures</span>
-          <h2 class="section-title">Three types of chart.</h2>
+          <h2 class="section-title">Three types of chart — and what survived the test.</h2>
           <p class="lede">
-            Beyond their shared mechanics, the charts fall into three framing structures — from
-            guided learning to open-looking exploration.
+            Beyond their shared mechanics, the charts were read as falling into three framing
+            structures. Clustering the full corpus supports the first two and questions the third.
           </p>
         </div>
         <div class="card-grid">
@@ -194,16 +349,25 @@
             <span class="card-label">Type 01 · learning &amp; hierarchy</span>
             <h3>Initiatory guides</h3>
             <p>Teaching codes — arrows, chronological order, practical advice. A graded, gamified learning experience where each reading unlocks the next and builds a community of self-taught experts.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Confirmed · 53 charts, and the pole that structures cluster 1
+            </p>
           </div>
           <div class="card reveal">
             <span class="card-label">Type 02 · prescription</span>
             <h3>Cultural canons</h3>
             <p>A closed ideological library (traditionalist, libertarian, communist…) whose works reinforce one another. The chart becomes a framing device (Entman): visual hierarchy replaces rational deliberation.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Confirmed &amp; dominant · 197 charts, 75 % of the corpus
+            </p>
           </div>
           <div class="card reveal">
             <span class="card-label">Type 03 · exploration &amp; simulation</span>
             <h3>Playful cartographies</h3>
             <p>Decision trees and RPG-style skill trees where the user “chooses” a route. The apparent freedom of the player masks an orientation framed in advance by the chart’s author.</p>
+            <p style="color: var(--accent); font-family: var(--mono); font-size: 0.78rem; margin-top: 0.7rem;">
+              Not separable · 14 charts; striking individually, not a statistical family
+            </p>
           </div>
         </div>
       </div>
@@ -270,205 +434,149 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="kicker">Corpus &amp; method · revised</span>
-          <h2 class="section-title">A computational pipeline for the charts of /lit/.</h2>
+          <span class="kicker">Corpus &amp; method · built and run</span>
+          <h2 class="section-title">A pipeline that runs on a laptop.</h2>
           <p class="lede">
-            This revised method keeps the theoretical objects of the original project — Deterding et
-            al.’s (2011) gamified mechanics, Entman’s (2004) framing structures and the counter-public
-            reading (Fraser, 2001; Bennett &amp; Pfetsch, 2018) — but replaces manual coding with a
-            <strong>reproducible, zero-budget computational chain</strong>, built exclusively on open-source
-            tools and open-weight models from GitHub and Hugging Face. Everything runs in Python on a
-            personal machine; a consumer GPU suffices, and Colab or Kaggle provide free ones.
+            Everything below was written, run and measured — not planned. The constraint was
+            deliberate: <strong>no remote API, no key, no per-use cost</strong>, so the whole
+            analysis can be replayed by anyone on an ordinary machine. Where a step turned out not
+            to work, it was measured and dropped rather than quietly kept.
           </p>
         </div>
-
-        <div class="strata reveal">
-          <div class="stratum">
-            <span class="idx">01</span>
-            <h3>Automated corpus construction</h3>
-            <p class="detail">
-              The 262-chart base is kept but rebuilt and extended systematically, via 4chan’s public JSON
-              API and the third-party archives indexing /lit/ over the long run (Warosu, Desuarchive,
-              queried through FoolFuuka). Keyword search retrieves not only images but their
-              <strong>circulation metadata</strong>: source thread, date, replies, reception vocabulary
-              (“that’s kino anon”). Perceptual hashing then turns deduplication into a measure of
-              diffusion — repost frequency of a hash becomes a quantitative indicator of a chart’s
-              circulation, and Hamming distance between hashes reconstructs chart genealogies.
-            </p>
-            <span class="src">4chan API · BASC-py4chan · FoolFuuka · imagehash</span>
-          </div>
-
-          <div class="stratum">
-            <span class="idx">02</span>
-            <h3>Structured extraction — OCR + vision-language models</h3>
-            <p class="detail">
-              Human reading of each image is replaced by two automated layers. First OCR (PaddleOCR,
-              Surya) — more robust than Tesseract on stylised fonts — extracts all text with per-block
-              coordinates. Then a locally run open-weight VLM (Qwen2.5-VL, InternVL2, LLaVA-NeXT) emits
-              structured JSON per chart: layout type, nodes with positions, relations between nodes
-              (arrows, reading order, branches), ordinal labels and colour codes. The result is a
-              <strong>formal representation</strong> of each chart — a directed graph whose nodes are
-              works and whose edges are prescribed reading paths. Entities are normalised by fuzzy
-              matching against Open Library / Wikidata dumps.
-            </p>
-            <span class="src">PaddleOCR · Surya · Qwen2.5-VL · rapidfuzz</span>
-          </div>
-
-          <div class="stratum">
-            <span class="idx">03</span>
-            <h3>Automated coding of mechanics, human-validated</h3>
-            <p class="detail">
-              The Deterding codebook becomes an operationalisable annotation scheme, each mechanic
-              receiving computable indicators (detailed below). LLM coding is not taken at face value:
-              following Ziems et al. (2024), a subsample of ~50 charts is double-coded by hand and
-              human–machine agreement is measured with Cohen’s κ or Krippendorff’s α. The prompt is
-              iterated until <strong>α ≥ 0.70</strong>, then applied to the whole corpus — the original
-              manual method thus becomes the validation procedure for the computational one.
-            </p>
-            <span class="src">Ziems et al., 2024 · κ / α ≥ 0.70</span>
-          </div>
-
-          <div class="stratum">
-            <span class="idx">04</span>
-            <h3>Inductive typology, tested against theory</h3>
-            <p class="detail">
-              Rather than imposing the three framing types, the pipeline puts them to the test. Each
-              chart is a vector combining structural features from its graph (depth, width, tree vs
-              grid, cycles), a visual embedding (CLIP, SigLIP, DINOv2) and a textual embedding of the
-              OCR output. Unsupervised clustering (HDBSCAN) and BERTopic surface inductive groupings.
-              The question becomes empirical: do the emergent clusters match the three postulated
-              structures? Correspondence is measured by <strong>Adjusted Rand Index</strong>, turning the
-              typology into a testable hypothesis rather than an a priori grid.
-            </p>
-            <span class="src">HDBSCAN · BERTopic · CLIP / DINOv2 · ARI</span>
-          </div>
-
-          <div class="stratum">
-            <span class="idx">05</span>
-            <h3>Network analysis — mapping ideological libraries</h3>
-            <p class="detail">
-              Structured extraction enables what manual coding could not: an author co-occurrence
-              network across the entire corpus, two authors linked when they share a chart. Community
-              detection (Louvain, Leiden) makes the “closed ideological libraries” appear empirically as
-              <strong>dense modules</strong> — traditionalist, libertarian, communist. Betweenness
-              centrality identifies the <strong>bridge authors</strong> connecting “neutral” literature to
-              radical corpora: precisely where the circulation of radicalism plays out, now visible and
-              quantifiable. Combined with the temporal data of step 01, it tracks how canons evolve.
-            </p>
-            <span class="src">networkx · Gephi · Louvain / Leiden</span>
-          </div>
-
-          <div class="stratum">
-            <span class="idx">06</span>
-            <h3>Interpretation &amp; reproducibility</h3>
-            <p class="detail">
-              The counter-public interpretation is unchanged, but now rests on quantified results:
-              prevalence of each mechanic, cluster structure, network topology, repost dynamics. The
-              central argument — the message lies as much in the <em>form</em> as in the content — gains
-              empirical grounding, since form is formally encoded and its association with ideological
-              content becomes statistically testable. The whole pipeline is published on GitHub:
-              collection scripts, prompts, operationalised codebook, notebooks, data versioned with DVC.
-              No commercial API is required, which guarantees reproducibility, result stability, and
-              ethical compliance — <strong>the data never leaves the researcher’s machine</strong>, no
-              small matter for a 4chan corpus.
-            </p>
-            <span class="src">GitHub · Jupyter · DVC</span>
-          </div>
-        </div>
-
-        <!-- Operationalised mechanics -->
-        <h3 class="section-title reveal" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">
-          Operationalising the four mechanics.
-        </h3>
         <div class="steps">
           <div class="step reveal">
-            <span class="num">Indicator · 01</span>
-            <h3>Progression</h3>
-            <p>Ordinal labels detected by OCR (tier, level, novice/proficient, start/end) and the existence of a directed path in the extracted graph — is it a DAG with a source and sinks?</p>
+            <span class="num">Step · 01</span>
+            <h3>Text extraction — 264 charts in 11 minutes</h3>
+            <p>
+              Charts are huge images (up to 7 600 px) whose text is small. Running OCR on a
+              downscaled image loses the captions entirely, so each chart is cut into horizontal
+              bands and read at full resolution. Two engines are supported: the OS-native one by
+              default, and <strong>Surya</strong>, fully open source, as a control that reproduces
+              the same result on any system — 75× slower, which is why it is a control and not the
+              default.
+            </p>
           </div>
           <div class="step reveal">
-            <span class="num">Indicator · 02</span>
-            <h3>Symbolic reward</h3>
-            <p>Lexical detection of achievement vocabulary (proficient, mastery, patrician) by a zero- or few-shot classifier built on an open text LLM, applied to the OCR output.</p>
+            <span class="num">Step · 02</span>
+            <h3>Structure by geometry, not by model</h3>
+            <p>
+              Which lines belong to the same block, and which heading governs them, is a question of
+              geometry: the OCR coordinates already contain the answer. Reconstructing sections
+              deterministically takes under a second per chart, can hallucinate nothing, and returns
+              exactly the same result on every run. The same task handed to a local vision model
+              took eleven minutes per image and mistook section headings for books.
+            </p>
           </div>
           <div class="step reveal">
-            <span class="num">Indicator · 03</span>
-            <h3>Cognitive simplification</h3>
-            <p>Visual indicators computed with OpenCV: dominant colour count, density of arrows and separators, image-to-text ratio. Simplification becomes a measurable variable, not an impression.</p>
+            <span class="num">Step · 03</span>
+            <h3>Gamification markers — a versioned lexicon</h3>
+            <p>
+              Nine registers are searched by regular expression over each chart’s full text, and
+              every hit is stored with the line that produced it. The lexicon is a plain editable
+              file, not code: it is the study’s instrument, so it must be open to challenge. The
+              evidence trail matters — on a Dante chart, the 27 “imperatives” turn out to be quoted
+              verses of the <em>Commedia</em>, not the chart addressing its reader.
+            </p>
           </div>
           <div class="step reveal">
-            <span class="num">Indicator · 04</span>
-            <h3>Community identification</h3>
-            <p>Detection of in-group lexicon and /lit/ subcultural markers, both inside the chart <em>and</em> in the threads that receive it — using the circulation metadata from step 01.</p>
+            <span class="num">Step · 04</span>
+            <h3>Emergent typology, not an imposed one</h3>
+            <p>
+              Asking a model “what type of chart is this?” imposes a taxonomy decided in advance.
+              Instead each chart is described by 19 measurable variables — proportions, text
+              density, row and column regularity, typographic dispersion, line length, plus the nine
+              markers — and the groups are allowed to emerge. The coded forms and the wiki’s
+              categories are held back to judge the result, never to build it.
+            </p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Step · 05</span>
+            <h3>Author networks, after a cleaning pass</h3>
+            <p>
+              Author names come from an “Author: Title” pattern that also produces false authors —
+              <span style="font-family: var(--mono); font-size: 0.85em;">History</span>,
+              <span style="font-family: var(--mono); font-size: 0.85em;">ECONOMICS</span> — and
+              split forms, where <span style="font-family: var(--mono); font-size: 0.85em;">Kafka</span>
+              and <span style="font-family: var(--mono); font-size: 0.85em;">Franz Kafka</span> count
+              as two nodes and halve each other’s centrality. Both are corrected before any
+              measurement, and every discarded form and merged variant is logged for inspection.
+            </p>
+          </div>
+          <div class="step reveal">
+            <span class="num">Step · 06</span>
+            <h3>Reliability, reported rather than assumed</h3>
+            <p>
+              Automated form classification was tested against a full manual coding of all 264
+              charts and <strong>rejected on the evidence</strong>: Krippendorff’s α = 0.078 for
+              layout type, barely above an annotator who answers the same label every time. The same
+              model detects drawn arrows at α = 0.842 and is kept for that alone. A negative result,
+              measured and reported, is worth more than an unexamined variable.
+            </p>
           </div>
         </div>
 
-        <!-- Limits -->
         <h3 class="section-title reveal" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">
-          Limits and safeguards.
+          Known limits
         </h3>
         <div class="card-grid">
           <div class="card reveal">
             <span class="card-label">Limit 01</span>
-            <h3>OCR on ornamented fonts</h3>
-            <p>Charts favour stylised typography — the Nietzsche guide is a case in point. Hence the dual OCR + VLM layer and sample-based human validation.</p>
+            <h3>Books that are only covers</h3>
+            <p>Only 24 % of extracted works carry an identifiable author. On charts where books appear solely as cover images with no caption, no OCR can recover a title — those charts are structurally under-represented in the network.</p>
           </div>
           <div class="card reveal">
             <span class="card-label">Limit 02</span>
-            <h3>VLM hallucination</h3>
-            <p>Models can invent plausible but absent titles. Normalisation against Open Library acts as a filter, and every unmatched title is checked by hand.</p>
+            <h3>Provenance of the form coding</h3>
+            <p>The 264 forms were coded by a large vision-language model, not by a human and not by the local pipeline. It is external validation and is declared as such; the reproducible pipeline itself stays fully local.</p>
           </div>
           <div class="card reveal">
             <span class="card-label">Limit 03</span>
-            <h3>Inherited model bias</h3>
-            <p>LLM coding inherits the biases of its models. Human–machine agreement scores and full publication of the prompts are the minimum defensible safeguards.</p>
+            <h3>No repost counts</h3>
+            <p>The corpus comes from the wiki, not from threads, so actual recirculation cannot be measured. Content overlap between the annual “Top 100” editions is a floor, not a ranking.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">Limit 04</span>
+            <h3>Text volume bias</h3>
+            <p>Lexical marker scores grow mechanically with the amount of text on a chart. Comparisons between forms of very different verbosity require normalisation first.</p>
           </div>
         </div>
 
         <!-- Toolbox -->
         <div class="taxonomy" style="margin-top: 3rem;">
           <div>
-            <div class="group-label">Collection &amp; deduplication</div>
+            <div class="group-label">Text extraction</div>
             <div class="chips">
-              <span class="chip">4chan JSON API</span>
-              <span class="chip">BASC-py4chan</span>
-              <span class="chip">FoolFuuka</span>
-              <span class="chip">Desuarchive · Warosu</span>
-              <span class="chip">imagehash</span>
+              <span class="chip">Vision (macOS)</span>
+              <span class="chip">Surya · open-source control</span>
+              <span class="chip">Pillow</span>
+              <span class="chip">band tiling</span>
             </div>
           </div>
           <div>
-            <div class="group-label">OCR &amp; vision-language</div>
+            <div class="group-label">Structure &amp; markers</div>
             <div class="chips">
-              <span class="chip">PaddleOCR</span>
-              <span class="chip">Surya</span>
-              <span class="chip">Qwen2.5-VL</span>
-              <span class="chip">InternVL2</span>
-              <span class="chip">LLaVA-NeXT</span>
-              <span class="chip">Ollama · vLLM</span>
-              <span class="chip">OpenCV</span>
+              <span class="chip">pure geometry</span>
+              <span class="chip">versioned lexicon</span>
+              <span class="chip">Qwen2.5-VL · Ollama</span>
+              <span class="chip">Llama 3.1 · local</span>
             </div>
           </div>
           <div>
-            <div class="group-label">Embeddings, clustering &amp; topics</div>
+            <div class="group-label">Analysis</div>
             <div class="chips">
-              <span class="chip">Llama 3.1 · Mistral · Qwen2.5</span>
-              <span class="chip">CLIP · SigLIP · DINOv2</span>
-              <span class="chip">sentence-transformers</span>
-              <span class="chip">HDBSCAN</span>
-              <span class="chip">BERTopic</span>
-              <span class="chip">rapidfuzz</span>
-            </div>
-          </div>
-          <div>
-            <div class="group-label">Networks, validation &amp; reproducibility</div>
-            <div class="chips">
+              <span class="chip">pandas</span>
+              <span class="chip">scikit-learn</span>
               <span class="chip">networkx</span>
-              <span class="chip">Gephi</span>
-              <span class="chip">Cohen’s κ</span>
+              <span class="chip">matplotlib</span>
+            </div>
+          </div>
+          <div>
+            <div class="group-label">Validation &amp; reproducibility</div>
+            <div class="chips">
               <span class="chip">Krippendorff’s α</span>
-              <span class="chip">GitHub · Jupyter</span>
-              <span class="chip">DVC</span>
+              <span class="chip">adjusted Rand index</span>
+              <span class="chip">fixed seeds</span>
+              <span class="chip">conda · Jupyter · git</span>
             </div>
           </div>
         </div>
@@ -494,12 +602,32 @@
             </p>
           </div>
           <div class="card reveal">
+            <span class="card-label">Findings · measured</span>
+            <h3>Conformity before initiation</h3>
+            <p>
+              The corpus-wide measurement shifts the emphasis. Charts classify far more than they
+              guide: three quarters are catalogues, and the canon behaves as a single 56 %-dense
+              block where citing one author entails the others. Where prescription does appear, it
+              travels through <em>language</em> as much as through layout.
+            </p>
+          </div>
+          <div class="card reveal">
+            <span class="card-label">Method</span>
+            <h3>What a negative result is worth</h3>
+            <p>
+              Two claims were tested and revised on the evidence: a local vision model cannot
+              classify chart forms (α = 0.078), and the third theoretical type does not separate out
+              empirically (ARI = 0.12). Reporting both is what makes the remaining findings
+              credible.
+            </p>
+          </div>
+          <div class="card reveal">
             <span class="card-label">Opening</span>
             <h3>Next research</h3>
             <p>
-              Almost no scholarship targets /lit/ directly. A promising next step is to analyse
-              4chan’s own structure — its code, UI/UX and affordances — to better understand the
-              phenomena that emerge from it.
+              Almost no scholarship targets /lit/ directly. Two threads follow: analysing 4chan’s own
+              structure — code, UI/UX, affordances — and tracking the annual “Top 100” series as a
+              time span, to see whether the canon actually moves.
             </p>
           </div>
         </div>
