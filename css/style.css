@@ -246,6 +246,13 @@ img { max-width: 100%; display: block; }
 .btn-ghost { color: var(--accent); }
 .btn-ghost:hover { background: var(--accent-dim); color: var(--accent-strong); }
 
+.btn-dark {
+  background: var(--bg);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-dark:hover { background: var(--bg-raised); color: var(--accent-strong); border-color: var(--accent-strong); }
+
 /* portrait placeholder — replace with <img class="portrait"> when ready */
 .portrait-placeholder {
   width: clamp(180px, 22vw, 250px);
