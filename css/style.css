@@ -596,6 +596,10 @@ img.portrait {
   background: var(--bg-raised);
 }
 
+.chip.orange  { border-color: #dd8452; color: #dd8452; background: rgba(221,132,82,0.1); }
+.chip.green   { border-color: #55a868; color: #55a868; background: rgba(85,168,104,0.1); }
+.chip.blue    { border-color: #4c72b0; color: #4c72b0; background: rgba(76,114,176,0.1); }
+
 /* --------------------------------------------------------------------------
    Corpus strata table
    -------------------------------------------------------------------------- */
