@@ -596,9 +596,9 @@ img.portrait {
   background: var(--bg-raised);
 }
 
-.chip.orange  { border-color: #dd8452; color: #1a1f26; background: #dd8452; font-weight: 500; }
-.chip.green   { border-color: #55a868; color: #1a1f26; background: #55a868; font-weight: 500; }
-.chip.blue    { border-color: #4c72b0; color: #e8ebee; background: #4c72b0; font-weight: 500; }
+.chip.orange  { border: 1px solid #dd8452; color: #dd8452; background: transparent; font-size: 0.6rem; padding: 0.1rem 0.45rem; }
+.chip.green   { border: 1px solid #55a868; color: #55a868; background: transparent; font-size: 0.6rem; padding: 0.1rem 0.45rem; }
+.chip.blue    { border: 1px solid #4c72b0; color: #4c72b0; background: transparent; font-size: 0.6rem; padding: 0.1rem 0.45rem; }
 
 /* --------------------------------------------------------------------------
    Corpus strata table
